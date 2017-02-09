@@ -16,8 +16,9 @@
 	font-size: 14px;
 	padding: 10px 5px;
 	border-style: solid;
-	border-width: 1px;
-	overflow: hidden;
+	border-width: 0px;
+	border-top: 1px solid #bcbcbc;
+	border-bottom: 1px solid #bcbcbc overflow: hidden;
 	word-break: normal;
 }
 
@@ -25,9 +26,9 @@
 	font-family: 맑은 고딕;
 	font-size: 14px;
 	font-weight: normal;
-	padding: 10px 5px;
+	padding: 5px 10px;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 1px solid #bcbcbc;
 	overflow: hidden;
 	word-break: normal;
 }
@@ -35,8 +36,8 @@
 .tg .tg-wu73 {
 	font-size: 18px;
 	font-family: 맑은 고딕;
-	background-color: #6200c9;
-	color: #fcff2f;
+	background-color: #9C9172;
+	color: #FFFFFF;
 	text-align: center;
 	vertical-align: top
 }

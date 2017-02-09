@@ -13,6 +13,19 @@
 <html>
 <head>
 <style type="text/css">
+h4 {
+	FONT-SIZE: 22px;
+	COLOR: white;
+	PADDING-BOTTOM: 10px;
+	TEXT-ALIGN: left;
+	PADDING-TOP: 10px;
+	PADDING-LEFT: 10px;
+	BORDER-LEFT: #00b5ff 8px solid;
+	PADDING-RIGHT: 10px;
+	BACKGROUND-COLOR: #282828;
+	border-radius: 3px;
+}
+
 .tg {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -23,8 +36,9 @@
 	font-size: 14px;
 	padding: 10px 5px;
 	border-style: solid;
-	border-width: 1px;
-	overflow: hidden;
+	border-width: 0px;
+	border-top: 1px solid #bcbcbc;
+	border-bottom: 1px solid #bcbcbc overflow: hidden;
 	word-break: normal;
 }
 
@@ -32,9 +46,9 @@
 	font-family: 맑은 고딕;
 	font-size: 14px;
 	font-weight: normal;
-	padding: 10px 5px;
+	padding: 5px 10px;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 1px solid #bcbcbc;
 	overflow: hidden;
 	word-break: normal;
 }
@@ -42,8 +56,8 @@
 .tg .tg-wu73 {
 	font-size: 18px;
 	font-family: 맑은 고딕;
-	background-color: #6200c9;
-	color: #fcff2f;
+	background-color: #9C9172;
+	color: #FFFFFF;
 	text-align: center;
 	vertical-align: top
 }
@@ -78,8 +92,8 @@ h3 {
 		<a href="audit.jsp?command=logout">로그아웃</a>
 	</div>
 
-	<h3><%=session.getAttribute("login")%>님의 방문을 환영합니다.
-	</h3>
+	<h4><%=session.getAttribute("login")%>님의 방문을 환영합니다.
+	</h4>
 	<%
 		Class.forName("org.postgresql.Driver");
 			String url = "jdbc:postgresql://192.168.214.138:5432/niko";
@@ -105,7 +119,8 @@ h3 {
 	%>
 	<div class="check">
 		<form style="padding-top: 5px">
-			<input type="button" value="조회" onclick="location.reload(true)">
+			<input type="button" value="조회" onclick="location.reload(true)"
+				style="width: 100px; height: 50px; color: #FFFFFF; font-size: 20; font-family: 굴림; background-color: #564C4D; border: 0">
 		</form>
 	</div>
 
@@ -114,7 +129,6 @@ h3 {
 	%>
 	<%
 		} else { // total이 0이 아닌 즉 자료가 1개이상 있다면
-
 					while (rs.next()) { // while이라는 반복문으로 자료를 찾습니다. rs.next()는 다음라인으
 						int idx = rs.getInt(1); // 1은 첫번째 즉 num값을 idx라는 변수에 대입
 					}
