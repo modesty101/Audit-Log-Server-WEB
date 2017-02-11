@@ -60,7 +60,7 @@
 		int no = Integer.parseInt(request.getParameter("no"));
 
 		Class.forName("org.postgresql.Driver");
-		String url = "jdbc:postgresql://192.168.214.138:5432/niko";
+		String url = "jdbc:postgresql://192.168.214.140:5432/niko";
 		String user = "postgres";
 		String pwd = "1234";
 		String info = null;
