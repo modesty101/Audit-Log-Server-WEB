@@ -17,14 +17,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script>
-function popup(int no) {
-	var pop_title = "Log info";
-	var url = "http://localhost:6884/AuditLogPage/info.jsp?no=44";
-	
-	window.open(url,pop_title,"width=1000,height=1000,toolbar=no,status=no,location=no,scrollbars=auto,menubar=no,resizable=yes,left=50,right=50");
-}
-</script>
 <style type="text/css">
 h4 {
 	FONT-SIZE: 22px;
@@ -114,7 +106,7 @@ h3 {
 			// PostgreSQL의 드라이버를 불러옴.
 			Class.forName("org.postgresql.Driver");
 			// 연결할 DB의 주소와 테이블 명
-			String url = "jdbc:postgresql://192.168.214.140:5432/niko";
+			String url = "jdbc:postgresql://192.168.214.138:5432/niko";
 			// DB에 접속할 아이디
 			String id = "postgres";
 			// DB에 접속할 패스워드
@@ -152,19 +144,19 @@ h3 {
 
 	<%
 		// 객체 종료
-		rs.close();
-		stmt.close();
-		conn.close();
-		} catch (SQLException e) {
-			// 예외 처리
-			out.println(e.toString());
-		}
+				rs.close();
+				stmt.close();
+				conn.close();
+			} catch (SQLException e) {
+				// 예외 처리
+				out.println(e.toString());
+			}
 	%>
 
 	<%
-		// 위 구문과 동일함
-		Class.forName("org.postgresql.Driver");
-			String urI = "jdbc:postgresql://192.168.214.140:5432/niko";
+		// 위 구문과 동일함.
+			Class.forName("org.postgresql.Driver");
+			String urI = "jdbc:postgresql://192.168.214.138:5432/niko";
 			String user = "postgres";
 			String pwd = "1234";
 
@@ -176,10 +168,11 @@ h3 {
 				conn = DriverManager.getConnection(urI, user, pwd);
 				stmt = conn.createStatement();
 				// 테이블 내의 정보를 오름차순으로 정렬하여 출력함.
-				String sql = "SELECT no, date, info from Log order by no ASC";
+				String sql = "SELECT no, date, info from Log order by no DESC";
 				rs = stmt.executeQuery(sql);
 	%>
-	<!-- 테이블 안에 가져온 정보를 출력함 -->
+
+	<!-- 테이블 안에 가져온 정보를 출력함. -->
 	<table class="tg" width="100%" height="auto">
 		<tr>
 			<th class="tg-wu73">NO</th>
@@ -195,22 +188,21 @@ h3 {
 						// 세번째 필드 : INFO
 						String info = rs.getString(3);
 		%>
-		<!-- info부분은 팝업창으로 -->
+		<!-- info열: info.jsp로 (파라미터)값을 전달함. -->
 		<tr>
 			<td class="tg-7un6"><%=no%></td>
 			<td class="tg-7un6"><%=date%></td>
 			<td class="tg-7un6"><a href="info.jsp?no=<%=no%>"><%=info%></a></td>
-			<td class="tg-7un6"><input onclick="popup(<%=no %>)" type="button" value="INFO"/></td>
 		</tr>
 		<%
 			}
 		%>
 
 		<%
-		// 객체 종료
-				rs.close();
-				stmt.close();
-				conn.close();
+			// 객체 종료
+					rs.close();
+					stmt.close();
+					conn.close();
 				} catch (SQLException e) {
 					out.println("err: " + e.toString());
 				}

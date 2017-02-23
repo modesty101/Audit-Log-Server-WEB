@@ -56,11 +56,13 @@
 </head>
 <body>
 	<%
+		// 인코딩 옵션 UTF-8로 설정
 		request.setCharacterEncoding("utf-8");
+		// 파라미터 값을 int형으로 변환
 		int no = Integer.parseInt(request.getParameter("no"));
 
 		Class.forName("org.postgresql.Driver");
-		String url = "jdbc:postgresql://192.168.214.140:5432/niko";
+		String url = "jdbc:postgresql://192.168.214.138:5432/niko";
 		String user = "postgres";
 		String pwd = "1234";
 		String info = null;
@@ -73,7 +75,7 @@
 		try {
 			conn = DriverManager.getConnection(url, user, pwd);
 			stmt = conn.createStatement();
-
+			// 파라미터에 대한 정보만 출력하는 SQL문
 			String sql = "select info from log where no=" + no;
 			rs = stmt.executeQuery(sql);
 	%>
